@@ -888,8 +888,6 @@ textarea.form-input {
     opacity: 0.8;
   }
 
-  /* CSS cube styles removed - now using Three.js */
-
   .hero-content {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -897,7 +895,20 @@ textarea.form-input {
 
   .hero-visual {
     max-width: 500px;
+    margin: 0 auto;
   }
+
+  .fan-card {
+    width: 220px;
+    height: 300px;
+  }
+
+  .fan-card:nth-child(1) { --x: -180px; transform: translate3d(-180px, 0, 0); }
+  .fan-card:nth-child(2) { --x: -108px; transform: translate3d(-108px, 0, 0); }
+  .fan-card:nth-child(3) { --x: -36px; transform: translate3d(-36px, 0, 0); }
+  .fan-card:nth-child(4) { --x: 36px; transform: translate3d(36px, 0, 0); }
+  .fan-card:nth-child(5) { --x: 108px; transform: translate3d(108px, 0, 0); }
+  .fan-card:nth-child(6) { --x: 180px; transform: translate3d(180px, 0, 0); }
 
   .stats-row {
     flex-wrap: wrap;
@@ -927,16 +938,73 @@ textarea.form-input {
 }
 
 @media (max-width: 768px) {
-  .scroll-cube-container {
-    width: 80px;
-    height: 80px;
-    opacity: 0.6;
+  .container {
+    padding: 0 20px;
   }
 
-  /* CSS cube styles removed - now using Three.js */
+  .scroll-cube-container {
+    width: 70px;
+    height: 70px;
+    opacity: 0.5;
+  }
+
+  .nav {
+    padding: 0 10px;
+  }
+
+  .nav-inner {
+    height: 80px;
+  }
+
+  .logo-img {
+    height: 140px;
+    margin-top: 15px;
+  }
 
   .nav-links {
     display: none;
+  }
+
+  .hero {
+    padding-top: 80px;
+    min-height: auto;
+    padding-bottom: 60px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    margin-bottom: 20px;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+
+  .hero-visual {
+    min-height: 400px;
+    aspect-ratio: 4/5;
+  }
+
+  .fan-card {
+    width: 140px;
+    height: 190px;
+    border-radius: 12px;
+  }
+
+  .fan-card:nth-child(1) { --x: -100px; transform: translate3d(-100px, 0, 0); }
+  .fan-card:nth-child(2) { --x: -60px; transform: translate3d(-60px, 0, 0); }
+  .fan-card:nth-child(3) { --x: -20px; transform: translate3d(-20px, 0, 0); }
+  .fan-card:nth-child(4) { --x: 20px; transform: translate3d(20px, 0, 0); }
+  .fan-card:nth-child(5) { --x: 60px; transform: translate3d(60px, 0, 0); }
+  .fan-card:nth-child(6) { --x: 100px; transform: translate3d(100px, 0, 0); }
+
+  .fan-card.active {
+    transform: translate3d(var(--x), -20px, 0) scale(1.06);
+  }
+
+  .portfolio {
+    padding: 80px 0;
   }
 
   .portfolio-grid {
@@ -952,13 +1020,121 @@ textarea.form-input {
     opacity: 1;
   }
 
-  .clients-grid {
-    gap: 40px;
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .services {
+    padding: 80px 0;
+  }
+
+  .service-item {
+    padding: 32px 24px;
+  }
+
+  .process {
+    padding: 80px 0;
+  }
+
+  .process-item {
+    grid-template-columns: 50px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+  }
+
+  .process-number {
+    font-size: 2rem;
+  }
+
+  .process-title {
+    font-size: 1.25rem;
+  }
+
+  .clients {
+    padding: 40px 0;
+  }
+
+  .contact {
+    padding: 80px 0;
+  }
+
+  .contact-heading {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .contact-email {
+    font-size: 1.1rem;
+    word-break: break-all;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
   }
 
   .footer-inner {
     flex-direction: column;
     gap: 24px;
     text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    min-height: 320px;
+  }
+
+  .fan-card {
+    width: 110px;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .fan-card:nth-child(1) { --x: -75px; transform: translate3d(-75px, 0, 0); }
+  .fan-card:nth-child(2) { --x: -45px; transform: translate3d(-45px, 0, 0); }
+  .fan-card:nth-child(3) { --x: -15px; transform: translate3d(-15px, 0, 0); }
+  .fan-card:nth-child(4) { --x: 15px; transform: translate3d(15px, 0, 0); }
+  .fan-card:nth-child(5) { --x: 45px; transform: translate3d(45px, 0, 0); }
+  .fan-card:nth-child(6) { --x: 75px; transform: translate3d(75px, 0, 0); }
+
+  .fan-card.active {
+    transform: translate3d(var(--x), -15px, 0) scale(1.05);
+  }
+
+  .hero-text h1 {
+    font-size: clamp(1.75rem, 9vw, 2.5rem);
+  }
+
+  .hero-cta {
+    padding: 14px 24px;
+    font-size: 0.85rem;
+  }
+
+  .process-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .process-number {
+    font-size: 1.5rem;
+  }
+
+  .process-desc {
+    grid-column: 1;
   }
 }
