@@ -4,6 +4,9 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import * as THREE from 'three'
 import './App.css'
 
+// Base URL for assets (handles GitHub Pages deployment)
+const BASE_URL = import.meta.env.BASE_URL
+
 // Shared rotation ref to avoid re-renders
 const modelRotationRef = { current: { x: 0, y: 0 } }
 
@@ -12,14 +15,14 @@ function CustomModel() {
   const groupRef = useRef()
 
   // Load the OBJ file
-  const obj = useLoader(OBJLoader, '/assets/objects/base.obj')
+  const obj = useLoader(OBJLoader, `${BASE_URL}assets/objects/base.obj`)
 
   // Load textures
   const [diffuseMap, normalMap, roughnessMap, metalnessMap] = useLoader(THREE.TextureLoader, [
-    '/assets/objects/texture_diffuse.png',
-    '/assets/objects/texture_normal.png',
-    '/assets/objects/texture_roughness.png',
-    '/assets/objects/texture_metallic.png',
+    `${BASE_URL}assets/objects/texture_diffuse.png`,
+    `${BASE_URL}assets/objects/texture_normal.png`,
+    `${BASE_URL}assets/objects/texture_roughness.png`,
+    `${BASE_URL}assets/objects/texture_metallic.png`,
   ])
 
   // Clone the object and apply materials
@@ -157,7 +160,7 @@ const CardFan = React.memo(function CardFan() {
           onMouseLeave={handleMouseLeave}
         >
           <img
-            src={`/assets/images/image${num}.png`}
+            src={`${BASE_URL}assets/images/image${num}.png`}
             alt={`Project ${num}`}
             loading="eager"
             decoding="async"
@@ -169,7 +172,7 @@ const CardFan = React.memo(function CardFan() {
 })
 
 const clientLogos = [
-  { type: 'image', src: '/assets/images/nike_swoosh-logo_brandlogos.net_t2t54.png', alt: 'Nike' },
+  { type: 'image', src: `${BASE_URL}assets/images/nike_swoosh-logo_brandlogos.net_t2t54.png`, alt: 'Nike' },
   { type: 'text', name: 'NORDIC' },
   { type: 'text', name: 'ARTERIO' },
   { type: 'text', name: 'BLOOM' },
@@ -484,7 +487,7 @@ function App() {
       <nav className={`nav${scrolled ? ' nav-scrolled' : ''}`}>
         <div className="container nav-inner">
           <a href="#" className="logo">
-            <img src="/assets/images/logo-vprops.png" alt="VPROPS" className="logo-img" />
+            <img src={`${BASE_URL}assets/images/logo-vprops.png`} alt="VPROPS" className="logo-img" />
           </a>
           <ul className="nav-links">
             <li><a href="#work">Work</a></li>
